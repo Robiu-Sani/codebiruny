@@ -1,11 +1,9 @@
-import { Button } from "@/components/ui/button";
-// import Image from "next/image";
+import HomeComponent from "./pages/home/HomeComponent";
 
 export default function Home() {
   return (
     <div className="w-full">
-      this is code biruny
-      <Button>Click me</Button>
+      <HomeComponent />
     </div>
   );
 }
