@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" width="1200" height="400">
+  <!-- Background Gradient -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1e3c72" />
+      <stop offset="100%" stop-color="#2a5298" />
+    </linearGradient>
+    <radialGradient id="lightGlow" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" stop-color="#00c6ff" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#0072ff" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="400" fill="url(#bgGradient)" />
+
+  <!-- Light Effect Circles -->
+  <circle cx="300" cy="200" r="100" fill="url(#lightGlow)">
+    <animate attributeName="r" from="100" to="150" dur="3s" repeatCount="indefinite" />
+    <animate attributeName="opacity" from="0.8" to="0" dur="3s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="900" cy="200" r="100" fill="url(#lightGlow)">
+    <animate attributeName="r" from="100" to="150" dur="3s" repeatCount="indefinite" begin="1s" />
+    <animate attributeName="opacity" from="0.8" to="0" dur="3s" repeatCount="indefinite" begin="1s" />
+  </circle>
+
+  <!-- Animated Text -->
+  <text x="100" y="150" font-family="Arial, sans-serif" font-size="50" fill="#fff" font-weight="bold">
+    Welcome to
+    <animate attributeName="fill" values="#fff;#00c6ff;#fff" dur="2s" repeatCount="indefinite" />
+  </text>
+  <text x="100" y="200" font-family="Arial, sans-serif" font-size="60" fill="#00c6ff" font-weight="bold">
+    CodeBiruny
+    <animate attributeName="fill" values="#00c6ff;#0072ff;#00c6ff" dur="2s" repeatCount="indefinite" />
+  </text>
+
+  <!-- Glowing Icons -->
+  <circle cx="1100" cy="100" r="20" fill="url(#lightGlow)">
+    <animate attributeName="r" from="20" to="30" dur="2s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="1150" cy="100" r="20" fill="url(#lightGlow)">
+    <animate attributeName="r" from="20" to="30" dur="2s" repeatCount="indefinite" begin="0.5s" />
+  </circle>
+  <circle cx="1200" cy="100" r="20" fill="url(#lightGlow)">
+    <animate attributeName="r" from="20" to="30" dur="2s" repeatCount="indefinite" begin="1s" />
+  </circle>
+
+  <!-- Animated Lines -->
+  <line x1="0" y1="300" x2="1200" y2="300" stroke="#00c6ff" stroke-width="2" stroke-opacity="0.5">
+    <animate attributeName="stroke-opacity" values="0.5;0;0.5" dur="3s" repeatCount="indefinite" />
+  </line>
+  <line x1="0" y1="350" x2="1200" y2="350" stroke="#0072ff" stroke-width="2" stroke-opacity="0.5">
+    <animate attributeName="stroke-opacity" values="0.5;0;0.5" dur="3s" repeatCount="indefinite" begin="1s" />
+  </line>
+
+  <!-- Call to Action Button -->
+  <rect x="400" y="250" width="200" height="50" fill="#00c6ff" rx="10">
+    <animate attributeName="fill" values="#00c6ff;#0072ff;#00c6ff" dur="2s" repeatCount="indefinite" />
+  </rect>
+  <text x="450" y="285" font-family="Arial, sans-serif" font-size="20" fill="#fff" font-weight="bold">
+    Get Started
+  </text>
+</svg>

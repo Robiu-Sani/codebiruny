@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="800" height="400">
+  <!-- Transparent background -->
+  <rect width="800" height="400" fill="none" />
+
+  <defs>
+    <!-- Gradient for glowing effect -->
+    <radialGradient id="glowGradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" stop-color="#00c6ff" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#0072ff" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <!-- Laptop -->
+  <rect x="100" y="150" width="200" height="120" fill="#444" rx="10" />
+  <rect x="120" y="160" width="160" height="100" fill="#222" rx="5" />
+  <rect x="140" y="180" width="120" height="60" fill="url(#glowGradient)" rx="5">
+    <animate attributeName="opacity" values="0.8;0.4;0.8" dur="2s" repeatCount="indefinite" />
+  </rect>
+
+  <!-- Mobile -->
+  <rect x="400" y="150" width="80" height="140" fill="#444" rx="10" />
+  <rect x="410" y="160" width="60" height="120" fill="#222" rx="5" />
+  <rect x="420" y="170" width="40" height="100" fill="url(#glowGradient)" rx="5">
+    <animate attributeName="opacity" values="0.8;0.4;0.8" dur="2s" repeatCount="indefinite" />
+  </rect>
+
+  <!-- Internet Signal Waves -->
+  <circle cx="600" cy="150" r="20" fill="none" stroke="#00c6ff" stroke-width="2">
+    <animate attributeName="r" from="20" to="50" dur="2s" repeatCount="indefinite" />
+    <animate attributeName="opacity" from="1" to="0" dur="2s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="600" cy="150" r="20" fill="none" stroke="#0072ff" stroke-width="2">
+    <animate attributeName="r" from="20" to="40" dur="2s" repeatCount="indefinite" begin="0.5s" />
+    <animate attributeName="opacity" from="1" to="0" dur="2s" repeatCount="indefinite" begin="0.5s" />
+  </circle>
+  <circle cx="600" cy="150" r="20" fill="none" stroke="#00c6ff" stroke-width="2">
+    <animate attributeName="r" from="20" to="30" dur="2s" repeatCount="indefinite" begin="1s" />
+    <animate attributeName="opacity" from="1" to="0" dur="2s" repeatCount="indefinite" begin="1s" />
+  </circle>
+
+  <!-- Glowing Icons -->
+  <circle cx="100" cy="150" r="10" fill="url(#glowGradient)">
+    <animate attributeName="r" from="10" to="15" dur="1.5s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="400" cy="150" r="10" fill="url(#glowGradient)">
+    <animate attributeName="r" from="10" to="15" dur="1.5s" repeatCount="indefinite" begin="0.5s" />
+  </circle>
+  <circle cx="600" cy="150" r="10" fill="url(#glowGradient)">
+    <animate attributeName="r" from="10" to="15" dur="1.5s" repeatCount="indefinite" begin="1s" />
+  </circle>
+
+  <!-- Text -->
+  <text x="50" y="350" font-family="Arial, sans-serif" font-size="24" fill="#00c6ff" font-weight="bold">
+    Internet Access
+  </text>
+  <text x="50" y="380" font-family="Arial, sans-serif" font-size="18" fill="#0072ff">
+    Mobile · Laptop · Connectivity
+  </text>
+</svg>

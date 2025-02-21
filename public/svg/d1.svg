@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="800" height="400">
+  <!-- Background with gradient -->
+  <rect width="800" height="400" fill="url(#bgGradient)" />
+  <defs>
+    <!-- Gradient for background -->
+    <linearGradient id="bgGradient" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1e3c72" />
+      <stop offset="100%" stop-color="#2a5298" />
+    </linearGradient>
+
+    <!-- Gradient for laptop screen -->
+    <linearGradient id="screenGradient" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#00c6ff" />
+      <stop offset="100%" stop-color="#0072ff" />
+    </linearGradient>
+
+    <!-- Gradient for glowing effect -->
+    <radialGradient id="glowGradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" stop-color="#00c6ff" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#0072ff" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <!-- Laptop base -->
+  <rect x="250" y="200" width="300" height="20" fill="#333" rx="5" />
+  <rect x="200" y="220" width="400" height="150" fill="#444" rx="10" />
+
+  <!-- Laptop screen -->
+  <rect x="220" y="230" width="360" height="130" fill="url(#screenGradient)" rx="5" />
+
+  <!-- Code snippet text -->
+  <text x="240" y="270" font-family="monospace" font-size="14" fill="#fff">
+    <tspan x="240" y="270">const createAwesomeBanner = () => {</tspan>
+    <tspan x="240" y="290">  return "Hello, World!";</tspan>
+    <tspan x="240" y="310">};</tspan>
+  </text>
+
+  <!-- Glowing animation -->
+  <circle cx="400" cy="200" r="50" fill="url(#glowGradient)">
+    <animate attributeName="r" from="50" to="100" dur="2s" repeatCount="indefinite" />
+    <animate attributeName="opacity" from="0.8" to="0" dur="2s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- Animated lines for effect -->
+  <line x1="0" y1="0" x2="800" y2="400" stroke="#00c6ff" stroke-width="2" stroke-opacity="0.5">
+    <animate attributeName="stroke-opacity" values="0.5;0;0.5" dur="3s" repeatCount="indefinite" />
+  </line>
+  <line x1="800" y1="0" x2="0" y2="400" stroke="#0072ff" stroke-width="2" stroke-opacity="0.5">
+    <animate attributeName="stroke-opacity" values="0.5;0;0.5" dur="3s" repeatCount="indefinite" />
+  </line>
+</svg>

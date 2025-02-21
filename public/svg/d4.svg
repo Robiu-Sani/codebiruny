@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <!-- Background -->
+  <rect width="800" height="500" fill="#1e1e1e" />
+
+  <defs>
+    <!-- Gradient for glowing effect -->
+    <linearGradient id="glowGradient" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#00c6ff" />
+      <stop offset="100%" stop-color="#0072ff" />
+    </linearGradient>
+  </defs>
+
+  <!-- Dashboard Header -->
+  <rect x="0" y="0" width="800" height="60" fill="#333" />
+  <text x="20" y="40" font-family="Arial, sans-serif" font-size="24" fill="#fff" font-weight="bold">
+    Dashboard
+  </text>
+
+  <!-- Metrics Cards -->
+  <rect x="20" y="80" width="200" height="100" fill="#444" rx="10" />
+  <text x="40" y="120" font-family="Arial, sans-serif" font-size="18" fill="#fff">
+    Total Users
+  </text>
+  <text x="40" y="150" font-family="Arial, sans-serif" font-size="24" fill="#00c6ff" font-weight="bold">
+    1,234
+  </text>
+
+  <rect x="240" y="80" width="200" height="100" fill="#444" rx="10" />
+  <text x="260" y="120" font-family="Arial, sans-serif" font-size="18" fill="#fff">
+    Active Sessions
+  </text>
+  <text x="260" y="150" font-family="Arial, sans-serif" font-size="24" fill="#00c6ff" font-weight="bold">
+    567
+  </text>
+
+  <rect x="460" y="80" width="200" height="100" fill="#444" rx="10" />
+  <text x="480" y="120" font-family="Arial, sans-serif" font-size="18" fill="#fff">
+    Revenue
+  </text>
+  <text x="480" y="150" font-family="Arial, sans-serif" font-size="24" fill="#00c6ff" font-weight="bold">
+    $12,345
+  </text>
+
+  <!-- Line Chart -->
+  <rect x="20" y="200" width="760" height="200" fill="#444" rx="10" />
+  <polyline points="40,350 100,300 160,320 220,280 280,340 340,310 400,330 460,290 520,350 580,320 640,340 700,300" fill="none" stroke="#00c6ff" stroke-width="3">
+    <animate attributeName="stroke-dasharray" values="0 1000; 1000 0" dur="5s" repeatCount="indefinite" />
+  </polyline>
+
+  <!-- Bar Chart -->
+  <rect x="20" y="420" width="760" height="60" fill="#444" rx="10" />
+  <rect x="40" y="440" width="40" height="40" fill="#00c6ff">
+    <animate attributeName="height" from="0" to="40" dur="1s" repeatCount="indefinite" />
+  </rect>
+  <rect x="100" y="440" width="40" height="30" fill="#00c6ff">
+    <animate attributeName="height" from="0" to="30" dur="1s" repeatCount="indefinite" begin="0.5s" />
+  </rect>
+  <rect x="160" y="440" width="40" height="50" fill="#00c6ff">
+    <animate attributeName="height" from="0" to="50" dur="1s" repeatCount="indefinite" begin="1s" />
+  </rect>
+  <rect x="220" y="440" width="40" height="20" fill="#00c6ff">
+    <animate attributeName="height" from="0" to="20" dur="1s" repeatCount="indefinite" begin="1.5s" />
+  </rect>
+  <rect x="280" y="440" width="40" height="40" fill="#00c6ff">
+    <animate attributeName="height" from="0" to="40" dur="1s" repeatCount="indefinite" begin="2s" />
+  </rect>
+
+  <!-- Glowing Icons -->
+  <circle cx="750" cy="30" r="10" fill="url(#glowGradient)">
+    <animate attributeName="r" from="10" to="15" dur="1.5s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="720" cy="30" r="10" fill="url(#glowGradient)">
+    <animate attributeName="r" from="10" to="15" dur="1.5s" repeatCount="indefinite" begin="0.5s" />
+  </circle>
+  <circle cx="690" cy="30" r="10" fill="url(#glowGradient)">
+    <animate attributeName="r" from="10" to="15" dur="1.5s" repeatCount="indefinite" begin="1s" />
+  </circle>
+</svg>

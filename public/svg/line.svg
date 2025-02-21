@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" width="1200" height="400">
+  <!-- Transparent Background -->
+  <rect width="1200" height="400" fill="none" />
+
+  <defs>
+    <!-- Gradient for light effects -->
+    <linearGradient id="lightGradient" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#00c6ff" stop-opacity="0" />
+      <stop offset="50%" stop-color="#00c6ff" stop-opacity="1" />
+      <stop offset="100%" stop-color="#00c6ff" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+
+  <!-- Left-to-Right Light Animation -->
+  <rect x="-200" y="150" width="200" height="10" fill="url(#lightGradient)">
+    <animate attributeName="x" from="-200" to="1200" dur="3s" repeatCount="indefinite" />
+  </rect>
+
+  <!-- Right-to-Left Light Animation -->
+  <rect x="1200" y="250" width="200" height="10" fill="url(#lightGradient)">
+    <animate attributeName="x" from="1200" to="-200" dur="3s" repeatCount="indefinite" begin="1.5s" />
+  </rect>
+
+  <!-- AI Chip Icon -->
+  <!-- <g transform="translate(500, 100)">
+    <rect x="0" y="0" width="200" height="200" fill="#444" rx="20" />
+    <circle cx="50" cy="50" r="20" fill="#00c6ff">
+      <animate attributeName="fill" values="#00c6ff;#0072ff;#00c6ff" dur="2s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="150" cy="50" r="20" fill="#00c6ff">
+      <animate attributeName="fill" values="#00c6ff;#0072ff;#00c6ff" dur="2s" repeatCount="indefinite" begin="0.5s" />
+    </circle>
+    <circle cx="50" cy="150" r="20" fill="#00c6ff">
+      <animate attributeName="fill" values="#00c6ff;#0072ff;#00c6ff" dur="2s" repeatCount="indefinite" begin="1s" />
+    </circle>
+    <circle cx="150" cy="150" r="20" fill="#00c6ff">
+      <animate attributeName="fill" values="#00c6ff;#0072ff;#00c6ff" dur="2s" repeatCount="indefinite" begin="1.5s" />
+    </circle>
+  </g> -->
+
+  <!-- Data Flow Lines -->
+  <line x1="0" y1="50" x2="1200" y2="50" stroke="#00c6ff" stroke-width="2" stroke-dasharray="10 5">
+    <animate attributeName="stroke-dashoffset" from="0" to="15" dur="2s" repeatCount="indefinite" />
+  </line>
+  <line x1="0" y1="350" x2="1200" y2="350" stroke="#0072ff" stroke-width="2" stroke-dasharray="10 5">
+    <animate attributeName="stroke-dashoffset" from="0" to="15" dur="2s" repeatCount="indefinite" begin="1s" />
+  </line>
+
+  <!-- AI Text -->
+  <text x="100" y="380" font-family="Arial, sans-serif" font-size="40" fill="#00c6ff" font-weight="bold">
+    AI Data Processing
+    <animate attributeName="fill" values="#00c6ff;#0072ff;#00c6ff" dur="2s" repeatCount="indefinite" />
+  </text>
+</svg>
