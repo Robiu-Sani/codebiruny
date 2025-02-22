@@ -27,12 +27,12 @@ export default function SearchAndButton() {
           <p className="text-sm">Search Our Services...</p>
         </div>
         <div className="px-2 flex justify-center items-center rounded-md h-[24px] border mr-[2px]">
-          <TbActivity />
+          <TbActivity className="text-gray-600" />
         </div>
       </div>
       <Button
         variant="outline"
-        className="h-[30px] w-[30px]"
+        className="h-[30px] w-[30px] !bg-transparent"
         size="icon"
         onClick={() => setTheme(currentTheme === "dark" ? "light" : "dark")}
       >
