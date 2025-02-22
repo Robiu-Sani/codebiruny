@@ -3,7 +3,7 @@ import React from "react";
 export default function Banner() {
   return (
     <div className="w-full bg-shadow min-h-[600px] pt-20 px-5 flex flex-col justify-center items-center gap-5">
-      <h1 className="text-center text-[70px] font-bold uppercase bg-gradient-to-r from-gray-600 via-gray-400 to-gray-600 bg-clip-text text-transparent drop-shadow-lg transition-colors duration-500">
+      <h1 className="text-center text-[30px] sm:text-[70px] relative z-0 font-bold uppercase bg-gradient-to-r from-gray-600 via-gray-400 to-gray-600 bg-clip-text text-transparent  transition-colors duration-500">
         Code Biruny
       </h1>
       <h3 className="text-center text-lg max-w-3xl text-gray-800 dark:text-gray-200 leading-relaxed tracking-wide transition-colors duration-500">

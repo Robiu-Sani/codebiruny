@@ -139,7 +139,7 @@ export default function NavItems() {
               About Us
             </NavigationMenuTrigger>
             <NavigationMenuContent>
-              <ul className="grid gap-3 p-4 w-[300px] md:w-[400px] lg:w-[600px]">
+              <ul className="grid gap-3 p-4 w-[300px] md:w-[400px] lg:w-[600px] ">
                 {aboutSections.map((section) => (
                   <ListItem
                     key={section.title}
