@@ -1,0 +1,37 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background: linear-gradient(
+    135deg,
+    #95acf7,
+    #b3c8f9,
+    #eef9fd,
+    #fbcdc6,
+    #ffd3b6,
+    #f7a9a8
+  );
+}
+.container:before,
+.container:after {
+  content: "";
+  position: absolute;
+  background: linear-gradient(
+    135deg,
+    #7183bd,
+    #899ac0,
+    #c3cccf,
+    #cfaaa4,
+    #caa790,
+    #c78988
+  );
+  transition: 0.5s;
+}
+/* .container:before {
+  inset: -30px;
+} */
+.container:after {
+  filter: blur(10px);
+  inset: -5px;
+}
