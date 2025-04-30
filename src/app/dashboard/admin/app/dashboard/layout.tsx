@@ -17,7 +17,7 @@ import { AppSidebar } from "../../components/app-sidebar";
 
 export default function AdminLayout({ children }: any) {
   return (
-    <div className="w-full fixed top-0 left-0 z-[10000000000]">
+    <div className="w-full fixed top-0 left-0 z-[10000]">
       <SidebarProvider>
         <AppSidebar />
         <SidebarInset>

@@ -1,7 +1,14 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Special+Gothic+Expanded+One&display=swap"); */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* * {
+  font-family: "Special Gothic Expanded One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+} */
 .blurBg {
   background: rgba(10, 85, 95, 0.13);
   backdrop-filter: blur(5px);
@@ -12,6 +19,18 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+@keyframes spin-once {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-once {
+  animation: spin-once 0.5s ease-in-out;
 }
 
 @layer base {
