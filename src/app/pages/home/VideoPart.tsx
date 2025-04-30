@@ -69,8 +69,8 @@ export default function VideoPart() {
   };
 
   return (
-    <section className="w-full container mx-auto py-12 md:py-16 lg:py-24 bg-gradient-to-b from-white to-gray-50 dark:from-gray-950 dark:to-gray-900">
-      <div className="container px-4 md:px-6 max-w-7xl">
+    <section className="w-full  py-12 md:py-16 lg:py-24 bg-gradient-to-b from-white to-gray-50 dark:from-gray-950 dark:to-gray-900">
+      <div className="container mx-auto px-4 md:px-6 max-w-7xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Video Section */}
           <motion.div
@@ -114,7 +114,7 @@ export default function VideoPart() {
               <AnimatePresence initial={false}>
                 <motion.div
                   key={activeIndex}
-                  className="absolute inset-0 flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 px-4"
+                  className="absolute inset-0 flex items-center justify-center gap-4 md:gap-6 px-4"
                   initial={{ opacity: 0, x: 100 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -100 }}
