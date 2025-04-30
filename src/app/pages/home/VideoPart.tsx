@@ -1,5 +1,9 @@
 "use client";
 
+import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useState } from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import {
   Code,
   Cpu,
@@ -8,67 +12,71 @@ import {
   MessageCircle,
   TestTube2,
 } from "lucide-react";
-import { useAutoAnimate } from "@formkit/auto-animate/react";
-import { useEffect, useState } from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function VideoPart() {
-  const [parent] = useAutoAnimate();
   const [activeIndex, setActiveIndex] = useState(0);
 
   const worksystem = [
     {
       icon: MessageCircle,
-      title: "Discuss",
+      title: "Discovery",
       description:
-        "We start with thorough requirements gathering and brainstorming sessions",
+        "Collaborative sessions to gather requirements and define project goals.",
     },
     {
       icon: LayoutTemplate,
-      title: "Make Frame",
+      title: "Prototyping",
       description:
-        "Creating wireframes and prototypes to visualize the concept",
+        "Crafting wireframes and interactive prototypes to shape the vision.",
     },
     {
       icon: Database,
-      title: "Database Design",
-      description: "Structuring efficient data models for optimal performance",
+      title: "Data Architecture",
+      description:
+        "Designing robust and scalable data models for seamless performance.",
     },
     {
       icon: Cpu,
-      title: "EIRFRAME",
-      description: "Our proprietary framework for rapid development",
+      title: "Framework Setup",
+      description:
+        "Leveraging our custom framework for accelerated development.",
     },
     {
       icon: Code,
-      title: "Development",
-      description: "Clean, maintainable code with modern technologies",
+      title: "Coding",
+      description:
+        "Writing clean, modular code using cutting-edge technologies.",
     },
     {
       icon: TestTube2,
-      title: "Testing",
-      description: "Rigorous QA process to ensure flawless performance",
+      title: "Quality Assurance",
+      description:
+        "Comprehensive testing to deliver a polished, bug-free product.",
     },
   ];
 
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % worksystem.length);
-    }, 3000);
+    }, 4000);
     return () => clearInterval(interval);
   }, [worksystem.length]);
 
-  const visibleItems = [
-    worksystem[(activeIndex - 1 + worksystem.length) % worksystem.length],
-    worksystem[activeIndex],
-    worksystem[(activeIndex + 1) % worksystem.length],
-  ];
+  const handleDotClick = (index: number) => {
+    setActiveIndex(index);
+  };
 
   return (
-    <section className="w-full py-12 md:py-24 lg:py-32">
-      <div className="container grid grid-cols-1 lg:grid-cols-2 gap-8 px-4 md:px-6">
-        <div className="flex justify-center">
-          <div className="relative aspect-video w-full max-w-2xl overflow-hidden rounded-xl shadow-lg border">
+    <section className="w-full py-12 md:py-16 lg:py-24 bg-gradient-to-b from-white to-gray-50 dark:from-gray-950 dark:to-gray-900">
+      <div className="container px-4 md:px-6 max-w-7xl">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          {/* Video Section */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="relative w-full max-w-2xl mx-auto lg:mx-0 aspect-video overflow-hidden rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-800"
+          >
             <video
               className="h-full w-full object-cover"
               autoPlay
@@ -79,104 +87,151 @@ export default function VideoPart() {
               <source src="/video/v1.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
-          </div>
-        </div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
+          </motion.div>
 
-        <div className="flex flex-col justify-center space-y-5">
-          <div className="space-y-2 ml-5">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">
-              How We Work
-            </h2>
-            <p className="text-muted-foreground">
-              Our proven process delivers exceptional results every time
-            </p>
-          </div>
-
-          <div className="relative h-[280px] w-full overflow-hidden">
-            <div
-              ref={parent}
-              className="absolute inset-0 flex flex-col items-center justify-center gap-1 transition-all duration-500"
+          {/* Work Process Section */}
+          <div className="flex flex-col justify-center space-y-6">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="space-y-3 text-center lg:text-left"
             >
-              {visibleItems.map((item, idx) => {
-                const Icon = item.icon;
-                const isActive = idx === 1;
-                const isPrev = idx === 0;
-                const isNext = idx === 2;
+              <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-cyan-500 to-purple-500">
+                Our Process
+              </h2>
+              <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-md mx-auto lg:mx-0">
+                A streamlined approach to deliver exceptional results, every
+                step of the way.
+              </p>
+            </motion.div>
 
-                return (
-                  <Card
-                    key={`${item.title}-${activeIndex}`}
-                    className={`
-                      w-full max-w-md transition-all duration-500
-                      ${
-                        isActive
-                          ? "z-10 scale-100 opacity-100 shadow-lg translate-y-0"
-                          : "scale-95 opacity-80"
-                      }
-                      ${
-                        isPrev
-                          ? "-translate-y-2"
-                          : isNext
-                          ? "translate-y-2"
-                          : ""
-                      }
-                    `}
-                  >
-                    <CardHeader>
-                      <div className="flex items-center gap-2">
-                        <div
-                          className={`
-                            p-3 rounded-full transition-colors
-                            ${isActive ? "bg-primary/10" : "bg-muted"}
-                            ${isActive ? "animate-spin-once" : ""}
-                          `}
-                        >
-                          <Icon
+            {/* Carousel for Mobile, Stack for Desktop */}
+            <div className="relative w-full h-[300px] md:h-[360px] overflow-hidden">
+              <AnimatePresence initial={false}>
+                <motion.div
+                  key={activeIndex}
+                  className="absolute inset-0 flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 px-4"
+                  initial={{ opacity: 0, x: 100 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -100 }}
+                  transition={{ duration: 0.5, ease: "easeInOut" }}
+                >
+                  {worksystem.map((item, idx) => {
+                    const Icon = item.icon;
+                    const isActive = idx === activeIndex;
+
+                    return (
+                      <Card
+                        key={`${item.title}-${idx}`}
+                        className={`
+                          w-full max-w-sm md:max-w-md transition-all duration-300
+                          ${
+                            isActive
+                              ? "scale-100 opacity-100 shadow-xl z-10"
+                              : "scale-95 opacity-60 md:opacity-80"
+                          }
+                          bg-white dark:bg-gray-800/80 backdrop-blur-sm border-none
+                        `}
+                      >
+                        <CardHeader className="flex flex-row items-center gap-3">
+                          <motion.div
                             className={`
-                              w-6 h-6
+                              p-3 rounded-full
                               ${
                                 isActive
-                                  ? "text-primary"
-                                  : "text-muted-foreground"
+                                  ? "bg-gradient-to-r from-cyan-500 to-purple-500"
+                                  : "bg-gray-200 dark:bg-gray-700"
                               }
                             `}
-                          />
-                        </div>
-                        <CardTitle
-                          className={
-                            isActive ? "text-primary" : "text-muted-foreground"
-                          }
-                        >
-                          {item.title}
-                        </CardTitle>
-                      </div>
-                    </CardHeader>
-                    <CardContent>
-                      <p className={isActive ? "" : "text-muted-foreground"}>
-                        {item.description}
-                      </p>
-                    </CardContent>
-                  </Card>
-                );
-              })}
+                            animate={isActive ? { rotate: 360 } : { rotate: 0 }}
+                            transition={{ duration: 1 }}
+                          >
+                            <Icon
+                              className={`
+                                w-6 h-6
+                                ${
+                                  isActive
+                                    ? "text-white"
+                                    : "text-gray-500 dark:text-gray-400"
+                                }
+                              `}
+                            />
+                          </motion.div>
+                          <CardTitle
+                            className={`
+                              text-lg font-semibold
+                              ${
+                                isActive
+                                  ? "text-cyan-600 dark:text-cyan-400"
+                                  : "text-gray-600 dark:text-gray-400"
+                              }
+                            `}
+                          >
+                            {item.title}
+                          </CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                          <p
+                            className={`
+                              text-sm
+                              ${
+                                isActive
+                                  ? "text-gray-700 dark:text-gray-200"
+                                  : "text-gray-500 dark:text-gray-400"
+                              }
+                            `}
+                          >
+                            {item.description}
+                          </p>
+                        </CardContent>
+                      </Card>
+                    );
+                  })}
+                </motion.div>
+              </AnimatePresence>
             </div>
-          </div>
 
-          <div className="flex justify-center gap-2">
-            {worksystem.map((_, idx) => (
-              <button
-                key={idx}
-                onClick={() => setActiveIndex(idx)}
-                className={`
-                  h-2 rounded-full transition-all duration-300
-                  ${activeIndex === idx ? "w-6 bg-primary" : "w-3 bg-muted"}
-                `}
-                aria-label={`Go to step ${idx + 1}`}
-              />
-            ))}
+            {/* Pagination Dots */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="flex justify-center gap-2 mt-4"
+            >
+              {worksystem.map((_, idx) => (
+                <Button
+                  key={idx}
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => handleDotClick(idx)}
+                  className={`
+                    h-2 w-2 p-0 rounded-full transition-all duration-300
+                    ${
+                      activeIndex === idx
+                        ? "bg-gradient-to-r from-cyan-500 to-purple-500 scale-125"
+                        : "bg-gray-300 dark:bg-gray-600"
+                    }
+                  `}
+                  aria-label={`Go to step ${idx + 1}`}
+                />
+              ))}
+            </motion.div>
           </div>
         </div>
       </div>
+
+      {/* Animated Background Elements */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.1 }}
+        transition={{ duration: 2 }}
+        className="absolute inset-0 pointer-events-none"
+      >
+        <div className="absolute top-1/4 left-1/6 w-64 h-64 rounded-full bg-cyan-500 blur-3xl opacity-20 animate-pulse" />
+        <div className="absolute bottom-1/4 right-1/6 w-80 h-80 rounded-full bg-purple-500 blur-3xl opacity-15 animate-pulse delay-1000" />
+      </motion.div>
     </section>
   );
 }

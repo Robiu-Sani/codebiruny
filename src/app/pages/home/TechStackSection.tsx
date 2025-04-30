@@ -21,9 +21,9 @@ export default function TechStackSection() {
   });
 
   // Scroll-based animations
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "25%"]);
-  const opacity = useTransform(scrollYProgress, [0, 0.85], [1, 0.25]);
-  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.97]);
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
+  const opacity = useTransform(scrollYProgress, [0, 0.9], [1, 0.3]);
+  const scale = useTransform(scrollYProgress, [0, 0.6], [1, 0.95]);
 
   const techStack = [
     {
@@ -97,36 +97,34 @@ export default function TechStackSection() {
   return (
     <section
       ref={ref}
-      className="relative pt-28 overflow-hidden bg-gradient-to-t from-gray-100 to-white dark:from-gray-900 dark:to-gray-950"
+      className="relative min-h-[100vh] py-16 md:py-24 overflow-hidden bg-gradient-to-t from-gray-100 to-white dark:from-gray-900 dark:to-gray-950"
     >
-      <div className="sticky top-0 h-screen flex items-center justify-center">
+      <div className="relative flex items-center justify-center min-h-[calc(100vh-4rem)] md:min-h-screen px-4">
         <motion.div
           style={{ y, opacity, scale }}
-          className="container px-4 md:px-8 max-w-7xl"
+          className="container max-w-7xl mx-auto"
         >
-          <div className="text-center mb-16">
+          <div className="text-center mb-12 md:mb-16">
             <motion.h2
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="text-4xl md:text-6xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-cyan-500 to-purple-500"
+              className="text-3xl md:text-5xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-cyan-500 to-purple-500"
             >
-              <div className="text-4xl md:text-5xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-500 dark:from-blue-400 dark:to-purple-400">
-                Our Technology Arsenal
-              </div>
+              Our Technology Arsenal
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-              className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mt-6"
+              className="text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mt-4"
             >
               Harnessing the power of modern technologies to build innovative,
               scalable, and high-performance solutions.
             </motion.p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {techStack.map((tech, index) => (
               <motion.div
                 key={index}
@@ -139,12 +137,12 @@ export default function TechStackSection() {
                   stiffness: 100,
                 }}
                 whileHover={{
-                  y: -10,
+                  y: -8,
                   scale: 1.03,
                   transition: { duration: 0.3 },
                 }}
               >
-                <Card className="relative h-full overflow-hidden bg-white dark:bg-gray-800/50 backdrop-blur-sm border-none shadow-xl hover:shadow-2xl transition-all duration-300">
+                <Card className="relative h-full overflow-hidden bg-white dark:bg-gray-800/50 backdrop-blur-sm border-none shadow-lg hover:shadow-xl transition-all duration-300">
                   <div
                     className={`absolute inset-0 bg-gradient-to-r ${tech.color} opacity-5`}
                   />
@@ -156,22 +154,22 @@ export default function TechStackSection() {
                     >
                       {tech.icon}
                     </motion.div>
-                    <CardTitle className="text-2xl font-bold text-gray-800 dark:text-gray-100">
+                    <CardTitle className="text-xl md:text-2xl font-bold text-gray-800 dark:text-gray-100">
                       {tech.category}
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <div className="space-y-3">
+                    <div className="space-y-2">
                       {tech.technologies.map((item, i) => (
                         <motion.div
                           key={i}
-                          initial={{ opacity: 0, x: -30 }}
+                          initial={{ opacity: 0, x: -20 }}
                           animate={{ opacity: 1, x: 0 }}
                           transition={{
                             delay: 0.3 + index * 0.1 + i * 0.08,
                             duration: 0.5,
                           }}
-                          className="flex items-center gap-3"
+                          className="flex items-center gap-2"
                         >
                           <span
                             className={`h-2 w-2 rounded-full bg-gradient-to-r ${tech.color}`}
@@ -192,11 +190,11 @@ export default function TechStackSection() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex justify-center mt-16"
+            className="flex justify-center mt-12 md:mt-16"
           >
             <Button
               size="lg"
-              className="bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white font-semibold px-8 py-3 rounded-full"
+              className="bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white font-semibold px-6 py-3 md:px-8 md:py-4 rounded-full"
             >
               Discover Our Tech
             </Button>
@@ -207,13 +205,13 @@ export default function TechStackSection() {
       {/* Animated background elements */}
       <motion.div
         initial={{ opacity: 0 }}
-        animate={{ opacity: 0.12 }}
+        animate={{ opacity: 0.1 }}
         transition={{ duration: 2 }}
         className="absolute inset-0 pointer-events-none"
       >
-        <div className="absolute top-1/4 left-1/6 w-80 h-80 rounded-full bg-cyan-500 blur-3xl opacity-20 animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/6 w-96 h-96 rounded-full bg-purple-500 blur-3xl opacity-15 animate-pulse delay-1000" />
-        <div className="absolute top-3/4 left-1/3 w-64 h-64 rounded-full bg-teal-500 blur-3xl opacity-18 animate-pulse delay-2000" />
+        <div className="absolute top-1/4 left-1/6 w-48 h-48 md:w-80 md:h-80 rounded-full bg-cyan-500 blur-3xl opacity-20 animate-pulse" />
+        <div className="absolute bottom-1/4 right-1/6 w-64 h-64 md:w-96 md:h-96 rounded-full bg-purple-500 blur-3xl opacity-15 animate-pulse delay-1000" />
+        <div className="absolute top-3/4 left-1/3 w-40 h-40 md:w-64 md:h-64 rounded-full bg-teal-500 blur-3xl opacity-18 animate-pulse delay-2000" />
       </motion.div>
     </section>
   );
