@@ -57,7 +57,9 @@ export default function VideoPart() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % worksystem.length);
+      setActiveIndex((prevIndex) =>
+        prevIndex === worksystem.length ? 0 : prevIndex + 1
+      );
     }, 4000);
     return () => clearInterval(interval);
   }, [worksystem.length]);
@@ -67,7 +69,7 @@ export default function VideoPart() {
   };
 
   return (
-    <section className="w-full py-12 md:py-16 lg:py-24 bg-gradient-to-b from-white to-gray-50 dark:from-gray-950 dark:to-gray-900">
+    <section className="w-full container mx-auto py-12 md:py-16 lg:py-24 bg-gradient-to-b from-white to-gray-50 dark:from-gray-950 dark:to-gray-900">
       <div className="container px-4 md:px-6 max-w-7xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Video Section */}
@@ -91,12 +93,12 @@ export default function VideoPart() {
           </motion.div>
 
           {/* Work Process Section */}
-          <div className="flex flex-col justify-center space-y-6">
+          <div className="flex flex-col justify-center space-y-2">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="space-y-3 text-center lg:text-left"
+              className="space-y-2 text-center lg:text-left"
             >
               <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-cyan-500 to-purple-500">
                 Our Process
@@ -108,7 +110,7 @@ export default function VideoPart() {
             </motion.div>
 
             {/* Carousel for Mobile, Stack for Desktop */}
-            <div className="relative w-full h-[300px] md:h-[360px] overflow-hidden">
+            <div className="relative w-full h-[200px] overflow-hidden">
               <AnimatePresence initial={false}>
                 <motion.div
                   key={activeIndex}
@@ -126,7 +128,7 @@ export default function VideoPart() {
                       <Card
                         key={`${item.title}-${idx}`}
                         className={`
-                          w-full max-w-sm md:max-w-md transition-all duration-300
+                          w-full min-w-[250px] max-w-[250px] -py-10 transition-all duration-300
                           ${
                             isActive
                               ? "scale-100 opacity-100 shadow-xl z-10"
