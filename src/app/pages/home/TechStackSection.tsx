@@ -97,7 +97,7 @@ export default function TechStackSection() {
   return (
     <section
       ref={ref}
-      className="relative min-h-[160vh] pt-28 overflow-hidden bg-gradient-to-t from-gray-100 to-white dark:from-gray-900 dark:to-gray-950"
+      className="relative pt-28 overflow-hidden bg-gradient-to-t from-gray-100 to-white dark:from-gray-900 dark:to-gray-950"
     >
       <div className="sticky top-0 h-screen flex items-center justify-center">
         <motion.div

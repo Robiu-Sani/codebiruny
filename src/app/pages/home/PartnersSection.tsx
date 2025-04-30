@@ -65,7 +65,7 @@ export default function PartnersSection() {
   return (
     <section
       ref={ref}
-      className="relative h-[150vh] pt-10 overflow-hidden bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-950"
+      className="relative  pt-10 overflow-hidden bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-950"
     >
       <div className="sticky top-0 h-screen w-full flex items-center justify-center">
         <motion.div
